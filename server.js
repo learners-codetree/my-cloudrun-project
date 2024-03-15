@@ -1,7 +1,7 @@
 const http = require('http')
 const server = http.createServer((req, res)  => {
     console.log('New connection request')
-    res.end('Hello cloudrun project')
+    res.end('Hello cloudrun project - Now with CI/CD through GitHub and Codebuild')
 })
 const PORT = process.env.PORT || 8080
 server.listen(PORT, () => console.log('Listening'))
