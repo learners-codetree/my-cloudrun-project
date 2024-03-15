@@ -3,3 +3,5 @@ steps:
   args: ['build', '-t', 'gcr.io/${PROJECT_ID}/learners-codetree/my-cloudrun-project:$SHORT_SHA', '.']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/${PROJECT_ID}/learners-codetree/my-cloudrun-project:$SHORT_SHA']
+  - name: 'gcr.io/cloud-builders/gcloud'
+  args: ['beta', 'run', 'deploy', 'my-cloudrun-project', '--region=us-central1', '--platform=managed', '--image=gcr.io/my-cloudrun-project-417304/learners-codetree/my-cloudrun-project:1f42f17:$SHORT_SHA']
